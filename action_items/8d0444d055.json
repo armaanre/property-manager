@@ -1,0 +1,24 @@
+{
+  "id": "8d0444d055",
+  "created_at": "2025-07-15T13:11:32.920588+00:00Z",
+  "action_type": "maintenance_ticket",
+  "tenant_name": "Wilkin Dan",
+  "address": "2000 Holland Av Apt 1F",
+  "subject": null,
+  "summary": "I have the money order for the payment, but I'm not going to send you, until fix the toilet.",
+  "request_type": "maintenance",
+  "context": {
+    "rent_balance": "$3,419",
+    "lease_end_date": "2025-10-27",
+    "maintenance_history": [
+      {
+        "id": "ccd24ea9ec",
+        "issue": "Clogged sink",
+        "status": "resolved",
+        "date": "2025-04-09"
+      }
+    ]
+  },
+  "status": "pending",
+  "asignee": "Allison Hill"
+}

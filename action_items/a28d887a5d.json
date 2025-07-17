@@ -1,0 +1,24 @@
+{
+  "id": "a28d887a5d",
+  "created_at": "2025-07-17T12:39:48.054156+00:00Z",
+  "action_type": "maintenance_ticket",
+  "tenant_name": "Armaan Ravi Eshwar",
+  "address": "Greenwich ave",
+  "subject": null,
+  "summary": "i locked myself out and I need access to my apartment",
+  "request_type": "maintenance",
+  "context": {
+    "rent_balance": "$3,419",
+    "lease_end_date": "2025-10-29",
+    "maintenance_history": [
+      {
+        "id": "650121a523",
+        "issue": "Clogged sink",
+        "status": "resolved",
+        "date": "2025-04-11"
+      }
+    ]
+  },
+  "status": "pending",
+  "asignee": "Allison Hill"
+}

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "domos-assistant"
+version = "0.1.0"
+description = ""
+authors = ["armaanre <armaan.ravieshwar@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+openai = "^1.95.1"
+jsonschema = "^4.24.0"
+dotenv = "^0.9.9"
+faker = "^37.4.0"
+nanoid = "^2.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

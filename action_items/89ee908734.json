@@ -1,0 +1,24 @@
+{
+  "id": "89ee908734",
+  "created_at": "2025-07-16T10:48:49.170131+00:00Z",
+  "action_type": "payment_reminder",
+  "tenant_name": "Armaan Ravi Eshwar",
+  "address": "100 Holland Av Apt 2D",
+  "subject": null,
+  "summary": "Can you let me know what is our monthly rent?",
+  "request_type": "payment",
+  "context": {
+    "rent_balance": "$1,926",
+    "lease_end_date": "2026-01-03",
+    "maintenance_history": [
+      {
+        "id": "eb8f57433f",
+        "issue": "Broken window lock",
+        "status": "open",
+        "date": "2024-07-26"
+      }
+    ]
+  },
+  "status": "pending",
+  "asignee": "Stephanie Miller"
+}
