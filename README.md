@@ -47,7 +47,7 @@ Go to **Manage account settings** and under the security tab ensure that **2-ste
 
 Search for App passwords in the nav bar and create a new app password. Ensure you save this as it will be used an an environment variable.
 
-# Configuring environement variables
+# Configuring environment variables
 
 Create a .env file in the directory
 
