@@ -68,6 +68,14 @@ To run the program, ensure that there are unread emails in the email address ref
 poetry run python main.py
 ```
 
+## Running unit tests
+
+To run the unit tests make sure you are in the root directory and run the command
+
+```python
+poetry run python -m pytest
+```
+
 The program should parse through the emails, generate a response and any relevant action items, and save them as json files on the disk.
 
 # Assumptions made
