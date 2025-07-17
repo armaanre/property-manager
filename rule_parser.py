@@ -33,9 +33,6 @@ class EmailParser:
         }
 
     def parse(self, msg: Dict[str, str]) -> ParsedEmail:
-        """
-        Turn a raw message dict into a ParsedEmail.
-        """
         tenant_name = self._parse_name(msg["sender"])
         address   = self._parse_address(msg["body"])
         request_type= self._classify_request(msg["body"])

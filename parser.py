@@ -58,10 +58,8 @@ class LLMEmailParser:
         return json.loads(resp.choices[0].message.content)
     
     def parse(self, msg: Dict[str, str]) -> Dict[str, str]:
-         # 1. Try LLM extraction
         try:
             parsed = self.llm_parse(msg)
-            # 2. Validate the returned JSON against our schema
             validate_email_data(parsed)
             parsed["request_type"] = self.normalize_request_type(parsed)
 
@@ -72,16 +70,24 @@ class LLMEmailParser:
                 "LLM parsing failed (falling back to rule-based): %s", e
             )
 
-        # 3. Fallback: use rule-based parser 
+        # Fallback: use rule-based parser 
         return asdict(self.rule_parser.parse(msg))
     
     def normalize_request_type(self, parsed: Dict[str, str]) -> str:
         body = parsed["full_body"].lower()
 
         # Case A: withholding payment until repair
-        if ("not going to send" in body or "until fix" in body) and any(
-            kw in body for kw in ("fix", "toilet", "leak", "repair", "maintenance")
-        ):
+        withholding_phrases = [
+            "not going to send",
+            "won't send",
+            "will not send",
+            "until fix",
+            "until you fix"
+        ]
+        maintenance_keywords = ["fix", "toilet", "leak", "repair", "maintenance"]
+
+        if any(phrase in body for phrase in withholding_phrases) \
+           and any(kw in body for kw in maintenance_keywords):
             return "maintenance"
 
         # Case B: pure payment question
