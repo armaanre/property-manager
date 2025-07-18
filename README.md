@@ -45,7 +45,7 @@ Once a gmail account is created go to the settings tab and ensure that IMAP is e
 
 Go to **Manage account settings** and under the security tab ensure that **2-step verification is enabled**
 
-Search for App passwords in the nav bar and create a new app password. Ensure you save this as it will be used an an environment variable.
+Search for App passwords in the nav bar and create a new app password. Ensure you save this as it will be used as an environment variable.
 
 # Configuring environment variables
 
