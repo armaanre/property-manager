@@ -1,17 +1,11 @@
 # sender.py
 
 import smtplib
-import logging
+from logger import logger
 import time
 from email.message import EmailMessage
 from typing import List, Optional
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.StreamHandler()
-formatter = logging.Formatter("%(asctime)s %(levelname)s %(name)s %(message)s")
-handler.setFormatter(formatter)
-logger.addHandler(handler)
 
 class EmailSender:
     """
