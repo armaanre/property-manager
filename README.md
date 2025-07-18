@@ -88,7 +88,7 @@ For simplicity all data is randomly generated using the faker library. I also as
 
 While I did incorporate some basic error handling when replying back to customer's emails failures could occur at other parts of the process, notablly when processing an unread email and generating a reply.
 
-While I did incorporate a fallback rule-based parser if the LLM failed to parse the email correctly, this is a relatively bare bones implementation, and ideally a possible improvement would be to retry parsing the message with the LLM, as I found it that creating specific rules to parse and email and extract it's context was quite a nuanced process.
+Initially I tried implementing a rule based parser, however due to the nuances of an email, along with possible typo's a user could write, I decided parsing it througj an LLM would make it more adaptible. I added the rule based parser as fallback if the LLM failed to parse the email correctly. This is a relatively bare bones implementation, and ideally a possible improvement would be to retry parsing the message with the LLM, as I found it that creating specific rules to parse and email and extract it's context is not ideal.
 
 A possible enhancement to the json tickets created would also be a priority label, as some actions are more urgent than others. SLA's could also be defined for the asignee of these tickets. I did ensure the id of the ticket was sent to the customer for their reference, and a future enhancement would be to provide updates on the ticket if the customer requests for it.
 
