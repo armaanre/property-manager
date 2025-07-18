@@ -92,6 +92,8 @@ Initially I tried implementing a rule based parser, however due to the nuances o
 
 A possible enhancement to the json tickets created would also be a priority label, as some actions are more urgent than others. SLA's could also be defined for the asignee of these tickets. I did ensure the id of the ticket was sent to the customer for their reference, and a future enhancement would be to provide updates on the ticket if the customer requests for it.
 
+Attachment processing would also be a good feature for extensability. Tenants might attach documents that would be useful to process their requests. Most email services provide api's to extract attachments. We could store this data in a blob storage and index it with the action item id that we generate for the request.
+
 The major risk of an email failing to be parsed or generating a response is that we mark the email as unread when we initially go through all unread emails in an inbox. This means our service will not reprocess this email if we attempt to retry and the tenant will not receive a response, and an action item will not be generated.
 
 A way to improve this would be to add message queues between reading unread emails, and parsing/sending a response. This decouples our services and if we fail at any step we can add unprocessed emails to a dead letter queue to process again later, ensuring we don't ignore customer's emails.
