@@ -13,7 +13,7 @@ from sender import EmailSender
 if __name__ == "__main__":
     load_dotenv()
     connector = InboxConnector(
-        host=os.environ.get("HOST"),
+        host="imap.gmail.com",
         username=os.environ.get("USERNAME"),
         password=os.environ.get("PASSWORD"),
     )

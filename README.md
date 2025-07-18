@@ -54,7 +54,6 @@ Create a .env file in the directory
 The following environment variables are needed:
 
 ```
-HOST (set this to imap.gmail.com)
 USERNAME (set this to your email address that was created)
 PASSWORD (set this to the App password that was created in the previous step)
 OPEN_AI_KEY (set this to your OPEN AI API key)
