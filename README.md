@@ -39,7 +39,7 @@ poetry install
 
 # Setting up an email inbox
 
-For demoing this project I reccommend using a gmail account, as this is what was used for developmenet and testing.
+For demoing this project using a gmail account is needed, as this is what was used for development and testing.
 
 Once a gmail account is created go to the settings tab and ensure that IMAP is enabled
 
