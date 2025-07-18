@@ -83,6 +83,8 @@ Some of the assumptions I made while building this assistant was the number of p
 
 For simplicity all data is randomly generated using the faker library. I also assumed the tenant will always receive an email response per email they send as well. If a tenant explicitly states that they do not want a response, the service does not currently take that into account.
 
+Another assumption made is that a we do not handle multiple emails in a given email chain. While the LLM can respond to replies on existing email conversations, there is no email chain detection so for each response the LLM sends it creates a seperate ticket.
+
 ## Limitations and possible improvements
 
 While I did incorporate some basic error handling when replying back to customer's emails failures could occur at other parts of the process, notablly when processing an unread email and generating a reply.
@@ -90,6 +92,10 @@ While I did incorporate some basic error handling when replying back to customer
 Initially I tried implementing a rule based parser, however due to the nuances of an email, along with possible typo's a user could write, I decided parsing it througj an LLM would make it more adaptible. I added the rule based parser as fallback if the LLM failed to parse the email correctly. This is a relatively bare bones implementation, and ideally a possible improvement would be to retry parsing the message with the LLM, as I found it that creating specific rules to parse and email and extract it's context is not ideal.
 
 A possible enhancement to the json tickets created would also be a priority label, as some actions are more urgent than others. SLA's could also be defined for the asignee of these tickets. I did ensure the id of the ticket was sent to the customer for their reference, and a future enhancement would be to provide updates on the ticket if the customer requests for it.
+
+As mentioned in my assumptions, one limitation is the inability for the service to tell if an email is part of an existing chain. While it should be possible to store the message and conversation id's in an email, and ensure a ticket is only created per email conversation and not per email, given the time constraints and the fact we do not utilise a DB I decided to make the assumption that a tenant would only send one email conversations.
+
+Storing the conversation id's on file or a DB to verifying if an email is part of an existing conversation is an improvement that could be added given more time.
 
 Attachment processing would also be a good feature for extensability. Tenants might attach documents that would be useful to process their requests. Most email services provide api's to extract attachments. We could store this data in a blob storage and index it with the action item id that we generate for the request.
 
