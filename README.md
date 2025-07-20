@@ -87,17 +87,17 @@ Another assumption made is that a we do not handle multiple emails in a given em
 
 ## Limitations and possible improvements
 
-While I did incorporate some basic error handling when replying back to customer's emails failures could occur at other parts of the process, notablly when processing an unread email and generating a reply.
+While I did incorporate some basic error handling when replying back to customer's emails failures could occur at other parts of the process, notably when processing an unread email and generating a reply.
 
-Initially I tried implementing a rule based parser, however due to the nuances of an email, along with possible typo's a user could write, I decided parsing it througj an LLM would make it more adaptible. I added the rule based parser as fallback if the LLM failed to parse the email correctly. This is a relatively bare bones implementation, and ideally a possible improvement would be to retry parsing the message with the LLM, as I found it that creating specific rules to parse and email and extract it's context is not ideal.
+Initially I tried implementing a rule based parser, however due to the nuances of an email, along with possible typo's a user could write, I decided parsing it through an LLM would make it more adaptable. I added the rule based parser as fallback if the LLM failed to parse the email correctly. This is a relatively bare bones implementation, and ideally a possible improvement would be to retry parsing the message with the LLM, as I found it that creating specific rules to parse and email and extract it's context is not ideal.
 
-A possible enhancement to the json tickets created would also be a priority label, as some actions are more urgent than others. SLA's could also be defined for the asignee of these tickets. I did ensure the id of the ticket was sent to the customer for their reference, and a future enhancement would be to provide updates on the ticket if the customer requests for it.
+A possible enhancement to the json tickets created would also be a priority label, as some actions are more urgent than others. SLA's could also be defined for the assignee of these tickets. I did ensure the id of the ticket was sent to the customer for their reference, and a future enhancement would be to provide updates on the ticket if the customer requests for it.
 
 As mentioned in my assumptions, one limitation is the inability for the service to tell if an email is part of an existing chain. While it should be possible to store the message and conversation id's in an email, and ensure a ticket is only created per email conversation and not per email, given the time constraints and the fact we do not utilise a DB I decided to make the assumption that a tenant would only send one email conversations.
 
 Storing the conversation id's on file or a DB to verifying if an email is part of an existing conversation is an improvement that could be added given more time.
 
-Attachment processing would also be a good feature for extensability. Tenants might attach documents that would be useful to process their requests. Most email services provide api's to extract attachments. We could store this data in a blob storage and index it with the action item id that we generate for the request.
+Attachment processing would also be a good feature for extensibility. Tenants might attach documents that would be useful to process their requests. Most email services provide api's to extract attachments. We could store this data in a blob storage and index it with the action item id that we generate for the request.
 
 The major risk of an email failing to be parsed or generating a response is that we mark the email as unread when we initially go through all unread emails in an inbox. This means our service will not reprocess this email if we attempt to retry and the tenant will not receive a response, and an action item will not be generated.
 
