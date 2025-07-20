@@ -107,7 +107,7 @@ For simplicity all the data is currently mocked. Ideally we would have a databas
 
 Currently this service is synchronous. If there are higher loads of emails to process this current implementation would not be feasible. Possible improvement would be to process multiple emails in parallel using a ThreadPoolExecute. Because all of our steps are I/O bound running multiple threads can help reduce latency.
 
-To make the service more concurrent we can leverage the asyncio library to prevent any blocking tasks.
+To make the service more concurrent we can leverage the asyncio library to prevent any blocking tasks from slowing down the processing of an email.
 
 From a security stand point, an improvement would be to add a step to sanitise emails before being parsed into the LLM. Malicious users could write prompt injections via email which could lead to our service being attacked or data being leaked.
 
