@@ -83,6 +83,8 @@ Some of the assumptions I made while building this assistant was the number of p
 
 For simplicity all data is randomly generated using the faker library. I also assumed the tenant will always receive an email response per email they send as well. If a tenant explicitly states that they do not want a response, the service does not currently take that into account.
 
+I have assumed that the length of a given email sent by a tenant is relatively short, such that the token consumption per call is minimal. I decided to use gpt-4o-mini for this use case as it gives a good balance between cost and performance.
+
 Another assumption made is that a we do not handle multiple emails in a given email chain. While the LLM can respond to replies on existing email conversations, there is no email chain detection so for each response the LLM sends it creates a seperate ticket.
 
 ## Limitations and possible improvements
